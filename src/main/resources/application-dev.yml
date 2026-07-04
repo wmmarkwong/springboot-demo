@@ -1,0 +1,45 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-demo
+  cloud:
+    inetutils:
+      preferred-networks: 127.0.0.
+
+
+eureka:
+  client:
+    registryFetchIntervalSeconds: 60
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  server:
+    enable-self-preservation: false   # 本地调试关闭自我保护
+    eviction-interval-timer-in-ms: 3000
+  instance:
+    prefer-ip-address: true
+
+# application.yml
+springdoc:
+  # API文档的路径，默认是 /v3/api-docs
+  api-docs:
+    path: /v3/api-docs
+  # Swagger UI的路径，Knife4j的访问地址是 /doc.html
+  swagger-ui:
+    path: /swagger-ui.html
+  # 接口的分组配置（可选，用于将不同模块的接口分组显示）
+  group-configs:
+    - group: 'default'  # 分组名称
+      paths-to-match: '/**' # 匹配的路径
+      packages-to-scan: com.example.demo.controller # 扫描的包路径
+
+# knife4j的增强配置（重要）
+knife4j:
+  # 开启增强功能，默认为false，必须设置为true才能使用Knife4j的增强UI
+  enable: true
+  # 生产环境安全配置，如果为true，将屏蔽所有文档资源
+  production: false
+  setting:
+    # 语言，支持 zh_cn / en
+    language: zh_cn
