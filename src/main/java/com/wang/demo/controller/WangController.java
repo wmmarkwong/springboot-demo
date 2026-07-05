@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Tag(name = "测试类")
 public class WangController {
 
+
     @Operation(summary = "测试聊天")
     @GetMapping(value = "/chat")
     private String chat(String msg) {
