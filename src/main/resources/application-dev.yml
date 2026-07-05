@@ -32,7 +32,7 @@ springdoc:
   group-configs:
     - group: 'default'  # 分组名称
       paths-to-match: '/**' # 匹配的路径
-      packages-to-scan: com.example.demo.controller # 扫描的包路径
+      packages-to-scan: com.wang.demo.controller # 扫描的包路径
 
 # knife4j的增强配置（重要）
 knife4j:
